@@ -1,0 +1,5 @@
+#+TITLE:  README for cpp-fun
+#+EMAIL:  jacob@conservify.org 
+
+This repository just explores the actual physical file size effect of using
+various C/C++ lanaguage features.
