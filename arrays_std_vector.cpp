@@ -1,18 +1,18 @@
+#include <vector>
+
 #include <Arduino.h>
 
 class Container {
 private:
-    uint8_t *values;
-    const size_t numberOfValues;
+    std::vector<uint8_t> &values;
 
 public:
-    template<size_t N>
-    Container(uint8_t (&values)[N]) : values(values), numberOfValues(N) {
+    Container(std::vector<uint8_t> values) : values(values) {
     }
 
     void print() {
-        for (size_t i = 0; i < numberOfValues; ++i) {
-            Serial.println(values[i]);
+        for (auto value : values) {
+            Serial.println(value);
         }
     }
 };
@@ -23,7 +23,7 @@ void setup() {
         delay(10);
     }
 
-    uint8_t values[] = {
+    std::vector<uint8_t> values = {
         1, 2, 3
     };
 

@@ -19,6 +19,11 @@ public:
 };
 
 void setup() {
+    Serial.begin(115200);
+    while (!Serial) {
+        delay(10);
+    }
+
     std::array<uint8_t, 3> values = {
         1, 2, 3
     };
