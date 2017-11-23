@@ -1,0 +1,9 @@
+#!/bin/bash
+
+EMPTY_SIZE=$(stat -c%s "build/empty.bin")
+
+for bin in build/*.bin; do
+  SIZE=$(stat -c%s "$bin")
+  ((DELTA = $SIZE - $EMPTY_SIZE))
+  echo $bin $SIZE $DELTA
+done
